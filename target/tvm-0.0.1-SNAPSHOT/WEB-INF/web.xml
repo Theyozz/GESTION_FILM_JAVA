@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <servlet>
+    <description></description>
+    <display-name>ajouterFilmServlet</display-name>
+    <servlet-name>ajouterFilmServlet</servlet-name>
+    <servlet-class>fr.doranco.gestionFilm.tvm.servlets.ajouterFilmServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ajouterFilmServlet</servlet-name>
+    <url-pattern>/ajouterFilmServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>indexServlet</display-name>
+    <servlet-name>indexServlet</servlet-name>
+    <servlet-class>fr.doranco.gestionFilm.tvm.servlets.indexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>indexServlet</servlet-name>
+    <url-pattern>/indexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ajouterUtilisateurServlet</display-name>
+    <servlet-name>ajouterUtilisateurServlet</servlet-name>
+    <servlet-class>fr.doranco.gestionFilm.tvm.servlets.ajouterUtilisateurServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ajouterUtilisateurServlet</servlet-name>
+    <url-pattern>/ajouterUtilisateurServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
