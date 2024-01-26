@@ -11,7 +11,8 @@ public class Requetes {
 	public static final String AJOUT_UTILISATEUR = "INSERT INTO `utilisateur`(`nom`, `prenom`, `telephone`, `email`, `motDePasse`,`DateHeureInscription`) VALUES (?,?,?,?,?,?)";
 	public static final String SUPPRIMER_UTILISATEUR = "DELETE FROM `utilisateur` WHERE Id_Utilisateur = ?";
 	public static final String MODIFIER_UTILISATEUR = "UPDATE `utilisateur` SET `nom`= ?,`prenom`= ?,`telephone`= ?,`email`= ?,`motDePasse`= ? WHERE Id_Utilisateur = ?";
-	public static final String AJOUTER_FILM_VISIONNE = "INSERT INTO `visionner`(`Id_Utilisateur`, `Id_Film`) VALUES (?,?)";
+	public static final String TROUVER_UTILISATEUR_PAR_ID = "SELECT * FROM `utilisateur` WHERE Id_Utilisateur = ?";
+	public static final String TROUVER_TOUS_LES_UTILISATEUR = "SELECT * FROM `utilisateur`";
 	
 	// Image
 	public static final String AJOUT_IMAGE = "INSERT INTO `image`(`url`, `Id_Film`) VALUES (?,?)";

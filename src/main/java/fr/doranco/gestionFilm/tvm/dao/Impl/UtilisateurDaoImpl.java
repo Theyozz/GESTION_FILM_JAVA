@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import fr.doranco.gestionFilm.tvm.business.Film;
 import fr.doranco.gestionFilm.tvm.business.Utilisateur;
 import fr.doranco.gestionFilm.tvm.dao.ConnexionBd;
 import fr.doranco.gestionFilm.tvm.dao.Requetes;
@@ -64,18 +67,42 @@ public class UtilisateurDaoImpl implements UtilisateurDao{
 	}
 
 	@Override
-	public Utilisateur ajouterFilmVisionne(Utilisateur utilisateur) throws SQLException {
-		/*
-		PreparedStatement ps = connexion.prepareStatement(Requetes.AJOUTER_FILM_VISIONNE, Statement.RETURN_GENERATED_KEYS);
-		ps.setLong(1, utilisateur.getId());
-		ps.setLong(2, utilisateur.getFilms().get);
-		ps.executeUpdate();
+	public List<Utilisateur> trouverToutLesUtilisateurs() throws SQLException {
+		PreparedStatement ps = connexion.prepareStatement(Requetes.TROUVER_TOUS_LES_UTILISATEUR);
+        ResultSet rs = ps.executeQuery();
+        List<Utilisateur> utilisateurs = new ArrayList<>();
 
-		ResultSet rs = ps.getGeneratedKeys();
+        while(rs.next()) {
+        	Utilisateur utilisateur = new Utilisateur();
+        	utilisateur.setId(rs.getLong("Id_Utilisateur"));
+        	utilisateur.setNom(rs.getString("nom"));
+        	utilisateur.setPrenom(rs.getString("prenom"));
+        	utilisateur.setEmail(rs.getString("email"));
+        	utilisateur.setTelephone(rs.getString("telephone"));
+        	utilisateur.setMotDePasse(rs.getString("motDePasse"));
+        	utilisateurs.add(utilisateur);
+        }
+
+
+        return utilisateurs;
+	}
+
+	@Override
+	public Utilisateur trouverUtilisateurParId(Long id) throws SQLException {
+		PreparedStatement ps = connexion.prepareStatement(Requetes.TROUVER_UTILISATEUR_PAR_ID);
+		ps.setLong(1, id);
+
+		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
-			utilisateur.setId(rs.getLong(1));
+			Utilisateur utilisateur = new Utilisateur();
+			utilisateur.setId(rs.getLong("Id_Utilisateur"));
+        	utilisateur.setNom(rs.getString("nom"));
+        	utilisateur.setPrenom(rs.getString("prenom"));
+        	utilisateur.setEmail(rs.getString("email"));
+        	utilisateur.setTelephone(rs.getString("telephone"));
+        	utilisateur.setMotDePasse(rs.getString("motDePasse"));
+			return utilisateur;
 		}
-		return utilisateur; */
 		return null;
 	}
 

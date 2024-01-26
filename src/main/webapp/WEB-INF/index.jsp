@@ -20,5 +20,10 @@
 	<br/>
 	<br/>
 	<a href="ajoutImage">Ajouter une image à un film</a>
+	
+	<h1>Liste des utilisateurs</h1>
+	<c:forEach items="${utilisateurs}" var="utilisateur">
+			<li>${utilisateur.nom } ${utilisateur.prenom } | <a href="supprimerUtilisateur?id=${utilisateur.id }">Supprimer</a> | <a href="modifierUtilisateur?id=${utilisateur.id }">Modifer</a></li>
+	</c:forEach>
 </body>
 </html>

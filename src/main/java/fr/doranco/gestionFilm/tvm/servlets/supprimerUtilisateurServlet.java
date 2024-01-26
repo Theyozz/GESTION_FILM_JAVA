@@ -6,28 +6,22 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-import fr.doranco.gestionFilm.tvm.business.Film;
-import fr.doranco.gestionFilm.tvm.business.Utilisateur;
-import fr.doranco.gestionFilm.tvm.services.FilmService;
 import fr.doranco.gestionFilm.tvm.services.UtilisateurService;
-import fr.doranco.gestionFilm.tvm.services.Impl.FilmServiceImpl;
 import fr.doranco.gestionFilm.tvm.services.Impl.UtilisateurServiceImpl;
 
 /**
- * Servlet implementation class indexServlet
+ * Servlet implementation class supprimerUtilisateurServlet
  */
-@WebServlet(urlPatterns = {"/", "/index"})
-public class indexServlet extends HttpServlet {
+@WebServlet("/supprimerUtilisateur")
+public class supprimerUtilisateurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private FilmService filmService = new FilmServiceImpl();
 	private UtilisateurService utilisateurService = new UtilisateurServiceImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public indexServlet() {
+    public supprimerUtilisateurServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,11 +30,9 @@ public class indexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Film> films = filmService.trouverToutLesFilms();
-		List<Utilisateur> utilisateurs = utilisateurService.trouverTousLesUtilisateurs();
-		request.setAttribute("films", films);
-		request.setAttribute("utilisateurs", utilisateurs);
-		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		utilisateurService.supprimerUtilisateur(Long.parseLong(request.getParameter("id")));
+		response.sendRedirect("index");
 	}
 
 	/**

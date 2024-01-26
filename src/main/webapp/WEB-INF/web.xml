@@ -63,4 +63,24 @@
     <servlet-name>ajouterImageServlet</servlet-name>
     <url-pattern>/ajouterImageServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>supprimerUtilisateurServlet</display-name>
+    <servlet-name>supprimerUtilisateurServlet</servlet-name>
+    <servlet-class>fr.doranco.gestionFilm.tvm.servlets.supprimerUtilisateurServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>supprimerUtilisateurServlet</servlet-name>
+    <url-pattern>/supprimerUtilisateurServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>modifierUtilisateurServlet</display-name>
+    <servlet-name>modifierUtilisateurServlet</servlet-name>
+    <servlet-class>fr.doranco.gestionFilm.tvm.servlets.modifierUtilisateurServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modifierUtilisateurServlet</servlet-name>
+    <url-pattern>/modifierUtilisateurServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

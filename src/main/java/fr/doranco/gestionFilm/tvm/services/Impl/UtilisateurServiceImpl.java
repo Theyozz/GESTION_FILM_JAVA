@@ -1,6 +1,8 @@
 package fr.doranco.gestionFilm.tvm.services.Impl;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
 
 import fr.doranco.gestionFilm.tvm.business.Utilisateur;
 import fr.doranco.gestionFilm.tvm.dao.UtilisateurDao;
@@ -45,8 +47,23 @@ public class UtilisateurServiceImpl implements UtilisateurService{
 	}
 
 	@Override
-	public Utilisateur ajouterFilmVisionne(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
+	public List<Utilisateur> trouverTousLesUtilisateurs() {
+		try {
+			return utilisateurDao.trouverToutLesUtilisateurs();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return Collections.emptyList();
+	}
+
+	@Override
+	public Utilisateur trouverUtilisateurParId(Long id) {
+		try {
+			return utilisateurDao.trouverUtilisateurParId(id);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

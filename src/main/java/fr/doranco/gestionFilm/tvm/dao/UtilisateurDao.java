@@ -1,6 +1,7 @@
 package fr.doranco.gestionFilm.tvm.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import fr.doranco.gestionFilm.tvm.business.Utilisateur;
 
@@ -12,5 +13,7 @@ public interface UtilisateurDao {
 	
 	Utilisateur modifierUtilisateur(Utilisateur utilisateur) throws SQLException;
 	
-	Utilisateur ajouterFilmVisionne(Utilisateur utilisateur) throws SQLException;
+	List<Utilisateur> trouverToutLesUtilisateurs() throws SQLException;
+	
+	Utilisateur trouverUtilisateurParId(Long id) throws SQLException;
 }
